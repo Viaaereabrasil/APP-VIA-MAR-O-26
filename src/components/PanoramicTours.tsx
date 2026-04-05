@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Clock, Users, User, MessageSquare, MapPin, ChevronRight, CreditCard } from 'lucide-react';
 import { WHATSAPP_LINK } from '../constants';
@@ -254,41 +254,210 @@ const TOURS_DATA = {
   },
   ribeirao: {
     title: 'Ribeirão Preto',
-    bgImage: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&q=80&w=1920',
+    bgImage: 'https://img.cdndsgni.com/preview/10152047.jpg',
     description: 'Desfrute de um passeio panorâmico pelos pontos turísticos mais belos de Ribeirão Preto em nosso modelo Airbus.',
     paymentInfo: 'Aeronave decola com mínimo de 5 passageiros ou pagamento proporcional.',
     items: [
       {
         id: 'rp-6min',
         name: 'Ribeirão Essencial',
-        image: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&q=80&w=800',
+        images: [
+          'https://virtualieventos.com.br/wp-content/uploads/2025/04/ribeirao-preto.jpg',
+          'https://m.ahstatic.com/is/image/accorhotels/o-que-fazer-em-ribeirao-preto-2024-2:3by2?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.3&wid=335&hei=223&qlt=80',
+          'https://www.transportal.com.br/noticias/wp-content/uploads/2018/12/Ribeir%C3%A3o-Preto.jpg'
+        ],
         duration: '06 Minutos',
         sharedPrice: '300,00',
         exclusivePrice: '1.500,00',
+        capacity: 5,
         color: 'bg-blue-500',
         textColor: 'text-blue-600',
         borderColor: 'border-blue-100',
         hoverBorder: 'hover:border-blue-300',
         iconColor: 'bg-blue-600',
-        highlights: ['Pontos turísticos de Ribeirão Preto', 'Voo em Airbus', 'Capacidade até 6 pessoas']
+        highlights: ['Pontos turísticos de Ribeirão Preto', 'Voo em Airbus', 'Capacidade até 5 pessoas']
       },
       {
         id: 'rp-12min',
         name: 'Ribeirão Completo',
-        image: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&q=80&w=800',
+        images: [
+          'https://www.creditoreal.com.br/blog/wp-content/uploads/2025/06/GettyImages-1347169103-2000x1124.jpg',
+          'https://sejadigital.com.br/nossahistoria/wp-content/uploads/2018/03/Ribeir%C3%A3o-Ribeir%C3%A3o-Preto-e-regi%C3%A3o-s%C3%A3o-100-digitais_edit-768x510.png',
+          'https://img.cdndsgni.com/preview/10152047.jpg'
+        ],
         duration: '12 Minutos',
         sharedPrice: '600,00',
         exclusivePrice: '3.000,00',
+        capacity: 5,
         color: 'bg-purple-500',
         textColor: 'text-purple-600',
         borderColor: 'border-purple-100',
         hoverBorder: 'hover:border-purple-300',
         iconColor: 'bg-purple-600',
-        highlights: ['Tour panorâmico estendido', 'Voo em Airbus', 'Segurança e Conforto']
+        highlights: ['Tour panorâmico estendido', 'Voo em Airbus', 'Capacidade até 5 pessoas']
       }
     ]
   }
 };
+
+function TourCard({ tour, index, activeRegion }: any) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = tour.images || [tour.image];
+
+  const nextImage = (e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = (e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      className={cn(
+        "relative overflow-hidden rounded-[2.5rem] bg-white border transition-all hover:shadow-2xl group flex flex-col",
+        tour.borderColor,
+        tour.hoverBorder
+      )}
+    >
+      {/* Header Color Strip */}
+      <div className={cn("h-3 w-full", tour.color)} />
+      
+      {/* Tour Image Carousel */}
+      <div className="h-48 w-full overflow-hidden relative">
+        <AnimatePresence mode="wait">
+          <motion.img 
+            key={currentImageIndex}
+            src={images[currentImageIndex]} 
+            alt={tour.name} 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            referrerPolicy="no-referrer"
+          />
+        </AnimatePresence>
+        
+        {images.length > 1 && (
+          <>
+            <button 
+              onClick={prevImage}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
+            >
+              <ChevronRight size={16} className="rotate-180" />
+            </button>
+            <button 
+              onClick={nextImage}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
+            >
+              <ChevronRight size={16} />
+            </button>
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+              {images.map((_: any, i: number) => (
+                <div 
+                  key={i} 
+                  className={cn(
+                    "w-1.5 h-1.5 rounded-full transition-all",
+                    i === currentImageIndex ? "bg-white w-3" : "bg-white/50"
+                  )}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="p-8 flex-1 flex flex-col">
+        <div className="flex items-center gap-2 mb-6">
+          <MapPin size={18} className={tour.textColor} />
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Roteiro</span>
+        </div>
+
+        <h3 className="text-2xl font-bold text-slate-900 mb-2">{tour.name}</h3>
+        
+        <div className="flex items-center gap-2 text-slate-500 mb-6">
+          <Clock size={16} />
+          <span className="text-sm font-medium">{tour.duration} de voo</span>
+        </div>
+
+        {tour.highlights && (
+          <div className="mb-6 space-y-2">
+            {tour.highlights.slice(0, 3).map((h: string) => (
+              <div key={h} className="flex items-center gap-2 text-xs text-slate-500">
+                <ChevronRight size={12} className={tour.textColor} />
+                <span>{h}</span>
+              </div>
+            ))}
+            {tour.highlights.length > 3 && (
+              <p className="text-[10px] text-slate-400 italic">+ outros pontos turísticos</p>
+            )}
+          </div>
+        )}
+
+        <div className="space-y-4 mb-8 mt-auto">
+          {tour.sharedPrice && (
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+              <div className="flex items-center gap-2 mb-1">
+                <Users size={16} className="text-slate-400" />
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Voo Compartilhado</span>
+              </div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-sm font-bold text-slate-900">R$</span>
+                <span className="text-2xl font-black text-slate-900">{tour.sharedPrice}</span>
+                <span className="text-[10px] font-medium text-slate-500 ml-1">/pessoa</span>
+              </div>
+            </div>
+          )}
+
+          <div className="p-4 rounded-2xl bg-slate-900 text-white">
+            <div className="flex items-center gap-2 mb-1">
+              <Users size={16} className="text-slate-400" />
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Voo Exclusivo</span>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-baseline gap-1">
+                <span className="text-sm font-bold text-white">R$</span>
+                <span className="text-2xl font-black text-white">{tour.exclusivePrice}</span>
+                <span className="text-[10px] text-slate-400 ml-1">(Até {tour.capacity || 3} pessoas)</span>
+              </div>
+              {tour.exclusivePrice4 && (
+                <div className="flex items-baseline gap-1 pt-2 border-t border-white/10">
+                  <span className="text-sm font-bold text-white">R$</span>
+                  <span className="text-2xl font-black text-white">{tour.exclusivePrice4}</span>
+                  <span className="text-[10px] text-slate-400 ml-1">(4 pessoas)</span>
+                </div>
+              )}
+            </div>
+            {!tour.exclusivePrice4 && (
+              <p className="text-[9px] text-slate-400 mt-1">Capacidade para até {tour.capacity || 3} pessoas</p>
+            )}
+          </div>
+        </div>
+
+        <a
+          href={`${WHATSAPP_LINK}?text=Olá! Gostaria de reservar o passeio panorâmico em ${TOURS_DATA[activeRegion as keyof typeof TOURS_DATA].title}: ${tour.name}.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={cn(
+            "w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg shadow-black/5",
+            tour.iconColor
+          )}
+        >
+          Reservar Agora
+          <MessageSquare size={18} />
+        </a>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function PanoramicTours() {
   const [activeRegion, setActiveRegion] = useState<'buzios' | 'bh' | 'rj' | 'trancoso' | 'ribeirao'>('buzios');
@@ -419,111 +588,7 @@ export default function PanoramicTours() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
         >
           {region.items.map((tour, index) => (
-            <motion.div
-              key={tour.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className={cn(
-                "relative overflow-hidden rounded-[2.5rem] bg-white border transition-all hover:shadow-2xl group flex flex-col",
-                tour.borderColor,
-                tour.hoverBorder
-              )}
-            >
-              {/* Header Color Strip */}
-              <div className={cn("h-3 w-full", tour.color)} />
-              
-              {/* Tour Image */}
-              <div className="h-48 w-full overflow-hidden">
-                <img 
-                  src={tour.image} 
-                  alt={tour.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              <div className="p-8 flex-1 flex flex-col">
-                <div className="flex items-center gap-2 mb-6">
-                  <MapPin size={18} className={tour.textColor} />
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Roteiro</span>
-                </div>
-
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">{tour.name}</h3>
-                
-                <div className="flex items-center gap-2 text-slate-500 mb-6">
-                  <Clock size={16} />
-                  <span className="text-sm font-medium">{tour.duration} de voo</span>
-                </div>
-
-                {tour.highlights && (
-                  <div className="mb-6 space-y-2">
-                    {tour.highlights.slice(0, 3).map(h => (
-                      <div key={h} className="flex items-center gap-2 text-xs text-slate-500">
-                        <ChevronRight size={12} className={tour.textColor} />
-                        <span>{h}</span>
-                      </div>
-                    ))}
-                    {tour.highlights.length > 3 && (
-                      <p className="text-[10px] text-slate-400 italic">+ outros pontos turísticos</p>
-                    )}
-                  </div>
-                )}
-
-                <div className="space-y-4 mb-8 mt-auto">
-                  {tour.sharedPrice && (
-                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Users size={16} className="text-slate-400" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Voo Compartilhado</span>
-                      </div>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-sm font-bold text-slate-900">R$</span>
-                        <span className="text-2xl font-black text-slate-900">{tour.sharedPrice}</span>
-                        <span className="text-[10px] font-medium text-slate-500 ml-1">/pessoa</span>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="p-4 rounded-2xl bg-slate-900 text-white">
-                    <div className="flex items-center gap-2 mb-1">
-                      <User size={16} className="text-slate-400" />
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Voo Exclusivo</span>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-sm font-bold text-white">R$</span>
-                        <span className="text-2xl font-black text-white">{tour.exclusivePrice}</span>
-                        <span className="text-[10px] text-slate-400 ml-1">(Até 3 pessoas)</span>
-                      </div>
-                      {tour.exclusivePrice4 && (
-                        <div className="flex items-baseline gap-1 pt-2 border-t border-white/10">
-                          <span className="text-sm font-bold text-white">R$</span>
-                          <span className="text-2xl font-black text-white">{tour.exclusivePrice4}</span>
-                          <span className="text-[10px] text-slate-400 ml-1">(4 pessoas)</span>
-                        </div>
-                      )}
-                    </div>
-                    {!tour.exclusivePrice4 && (
-                      <p className="text-[9px] text-slate-400 mt-1">Capacidade para até 3 pessoas</p>
-                    )}
-                  </div>
-                </div>
-
-                <a
-                  href={`${WHATSAPP_LINK}?text=Olá! Gostaria de reservar o passeio panorâmico em ${activeRegion === 'bh' ? 'Belo Horizonte' : 'Búzios'}: ${tour.name}.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "w-full py-4 rounded-2xl text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg shadow-black/5",
-                    tour.iconColor
-                  )}
-                >
-                  Reservar Agora
-                  <MessageSquare size={18} />
-                </a>
-              </div>
-            </motion.div>
+            <TourCard key={tour.id} tour={tour} index={index} activeRegion={activeRegion} />
           ))}
         </motion.div>
       </AnimatePresence>
