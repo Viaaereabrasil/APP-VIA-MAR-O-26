@@ -1,0 +1,7 @@
+{
+  "name": "Via Aérea Brasil - Fretamento  Inteligente",
+  "description": "Via Aérea Brasil conecta você ao seu destino com segurança e luxo. Conheça nossa frota: King Air C90, Pilatus PC-12, Phenom 100 e Citation Mustang.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
