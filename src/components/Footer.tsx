@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, Mail, Phone, MapPin, Plane } from 'lucide-react';
 import { WHATSAPP_LINK } from '../constants';
 
 export default function Footer() {
@@ -9,32 +9,33 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-              <img 
-                src="input_file_0.png" 
-                alt="Via Aérea Brasil Logo" 
-                className="h-12 w-auto"
-                referrerPolicy="no-referrer"
-              />
+              <Plane className="text-orange-600" size={32} />
+              <span className="text-2xl font-black tracking-tighter text-white">
+                VIA AÉREA<span className="text-orange-600">.</span>
+              </span>
             </div>
             <p className="text-slate-400 leading-relaxed">
               Sua melhor escolha em fretamento executivo e passeios panorâmicos. Segurança, agilidade e exclusividade em cada voo.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
+              <a href="#" aria-label="Instagram" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
+              <a href="#" aria-label="Facebook" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
+              <a href="#" aria-label="LinkedIn" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
                 <Linkedin size={18} />
               </a>
-              <a href="https://share.google/djMFVK590x1voem5Q" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white transition-colors group">
+              <a href="https://share.google/djMFVK590x1voem5Q" aria-label="Página no Google" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-white transition-colors group">
                 <img 
                   src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" 
                   alt="Google" 
+                  width="20"
+                  height="20"
                   className="w-5 h-5 grayscale group-hover:grayscale-0 transition-all"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </a>
             </div>

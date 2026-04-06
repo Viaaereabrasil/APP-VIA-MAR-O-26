@@ -194,8 +194,11 @@ export default function Proposal({ data, onReset }: ProposalProps) {
             <img 
               src={`https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1200`} 
               alt="Mapa da Rota" 
+              width="1200"
+              height="675"
               className="w-full h-full object-cover opacity-50 grayscale"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="bg-white/90 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-xl text-center border border-slate-200">

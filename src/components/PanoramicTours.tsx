@@ -337,12 +337,15 @@ function TourCard({ tour, index, activeRegion }: any) {
             key={currentImageIndex}
             src={images[currentImageIndex]} 
             alt={tour.name} 
+            width="800"
+            height="600"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             referrerPolicy="no-referrer"
+            loading="lazy"
           />
         </AnimatePresence>
         
@@ -350,13 +353,15 @@ function TourCard({ tour, index, activeRegion }: any) {
           <>
             <button 
               onClick={prevImage}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
+              aria-label="Imagem anterior"
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
             >
               <ChevronRight size={16} className="rotate-180" />
             </button>
             <button 
               onClick={nextImage}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
+              aria-label="Próxima imagem"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50"
             >
               <ChevronRight size={16} />
             </button>
@@ -541,8 +546,11 @@ export default function PanoramicTours() {
             <img 
               src={region.bgImage} 
               alt={region.title} 
+              width="1920"
+              height="1080"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]" />
           </motion.div>

@@ -269,38 +269,43 @@ export default function App() {
       </main>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-slate-100 px-4 py-3 flex justify-around items-center md:hidden z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.03)]">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-slate-100 px-2 py-2 flex justify-around items-center md:hidden z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.03)]">
         <button 
           onClick={() => handleTabChange('home')}
-          className={cn("flex flex-col items-center gap-1 transition-all", activeTab === 'home' ? "text-orange-600 scale-110" : "text-slate-400")}
+          aria-label="Início"
+          className={cn("flex flex-col items-center justify-center gap-1 transition-all min-h-[48px] min-w-[48px] p-2 rounded-xl", activeTab === 'home' ? "text-orange-600 bg-orange-50" : "text-slate-400")}
         >
           <Home size={20} />
           <span className="text-[9px] font-bold uppercase tracking-tighter">Início</span>
         </button>
         <button 
           onClick={() => handleTabChange('fleet')}
-          className={cn("flex flex-col items-center gap-1 transition-all", activeTab === 'fleet' ? "text-orange-600 scale-110" : "text-slate-400")}
+          aria-label="Frota"
+          className={cn("flex flex-col items-center justify-center gap-1 transition-all min-h-[48px] min-w-[48px] p-2 rounded-xl", activeTab === 'fleet' ? "text-orange-600 bg-orange-50" : "text-slate-400")}
         >
           <Plane size={20} />
           <span className="text-[9px] font-bold uppercase tracking-tighter">Frota</span>
         </button>
         <button 
           onClick={() => handleTabChange('tours')}
-          className={cn("flex flex-col items-center gap-1 transition-all", activeTab === 'tours' ? "text-orange-600 scale-110" : "text-slate-400")}
+          aria-label="Passeios"
+          className={cn("flex flex-col items-center justify-center gap-1 transition-all min-h-[48px] min-w-[48px] p-2 rounded-xl", activeTab === 'tours' ? "text-orange-600 bg-orange-50" : "text-slate-400")}
         >
           <HelicopterIcon size={20} />
           <span className="text-[9px] font-bold uppercase tracking-tighter">Passeios</span>
         </button>
         <button 
           onClick={() => handleTabChange('calculator')}
-          className={cn("flex flex-col items-center gap-1 transition-all", activeTab === 'calculator' ? "text-orange-600 scale-110" : "text-slate-400")}
+          aria-label="Orçamento"
+          className={cn("flex flex-col items-center justify-center gap-1 transition-all min-h-[48px] min-w-[48px] p-2 rounded-xl", activeTab === 'calculator' ? "text-orange-600 bg-orange-50" : "text-slate-400")}
         >
           <CalcIcon size={20} />
           <span className="text-[9px] font-bold uppercase tracking-tighter">Orçamento</span>
         </button>
         <button 
           onClick={() => handleTabChange('contact')}
-          className={cn("flex flex-col items-center gap-1 transition-all", activeTab === 'contact' ? "text-orange-600 scale-110" : "text-slate-400")}
+          aria-label="Contato"
+          className={cn("flex flex-col items-center justify-center gap-1 transition-all min-h-[48px] min-w-[48px] p-2 rounded-xl", activeTab === 'contact' ? "text-orange-600 bg-orange-50" : "text-slate-400")}
         >
           <MessageSquare size={20} />
           <span className="text-[9px] font-bold uppercase tracking-tighter">Contato</span>

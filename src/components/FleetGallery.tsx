@@ -46,8 +46,11 @@ function AircraftCard({ aircraft, index, onSelect }: AircraftCardProps) {
             transition={{ duration: 0.3 }}
             src={images[currentImgIndex]}
             alt={aircraft.model}
+            width="800"
+            height="600"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             referrerPolicy="no-referrer"
+            loading="lazy"
           />
         </AnimatePresence>
         

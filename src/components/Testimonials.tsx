@@ -61,8 +61,11 @@ export default function Testimonials() {
                 <img 
                   src={testimonial.image} 
                   alt={testimonial.name} 
+                  width="56"
+                  height="56"
                   className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
                 <div>
                   <h4 className="font-bold text-slate-900">{testimonial.name}</h4>
@@ -90,8 +93,11 @@ export default function Testimonials() {
                 <img 
                   src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" 
                   alt="Google" 
+                  width="16"
+                  height="16"
                   className="w-4 h-4 opacity-50"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </a>
             </motion.div>
@@ -107,8 +113,11 @@ export default function Testimonials() {
             <img 
               src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" 
               alt="Google" 
+              width="20"
+              height="20"
               className="w-5 h-5"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
             Ver todas as avaliações no Google
             <ExternalLink size={18} className="text-slate-400 group-hover:text-orange-600 transition-colors" />

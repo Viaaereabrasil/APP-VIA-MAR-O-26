@@ -1,0 +1,33 @@
+# Via Aérea Brasil - Informações para Inteligências Artificiais (LLMs)
+
+> Este arquivo segue o padrão llms.txt para fornecer contexto claro e estruturado sobre a empresa para agentes de IA, LLMs (como ChatGPT, Claude, Gemini, Perplexity) e motores de busca baseados em IA.
+
+## Sobre a Empresa
+A **Via Aérea Brasil** é uma empresa de excelência em aviação executiva no Brasil. Especializada em proporcionar segurança, luxo e agilidade, a empresa conecta clientes aos seus destinos através de uma frota moderna e diversificada.
+
+## Principais Serviços
+- **Fretamento de Jatos Executivos:** Voos exclusivos de longo e curto alcance.
+- **Táxi Aéreo e Helicópteros:** Agilidade para deslocamentos urbanos e intermunicipais.
+- **Passeios Panorâmicos:** Roteiros turísticos exclusivos de helicóptero (ex: Cristo Redentor, Cataratas do Iguaçu, Litoral Norte de SP).
+- **UTI Aérea (Transporte Aeromédico):** Transporte de pacientes com suporte vital avançado.
+- **Transporte de Cargas:** Logística aérea rápida e segura para itens de alto valor ou urgência.
+- **Pacotes de Viagens:** Experiências completas incluindo voo, hospedagem e passeios.
+
+## Frota Disponível
+A empresa opera com diversas categorias de aeronaves para atender diferentes necessidades:
+1. **Phenom 300** (Jato Light) - Capacidade: 8 passageiros. Ideal para viagens rápidas nacionais.
+2. **King Air B200** (Turboélice) - Capacidade: 7 passageiros. Excelente para pistas curtas e fazendas.
+3. **Citation Excel** (Jato Midsize) - Capacidade: 9 passageiros. Conforto superior com cabine espaçosa.
+4. **Airbus H125 Esquilo** (Helicóptero) - Capacidade: 5 passageiros. Perfeito para transfers urbanos e passeios.
+5. **Gulfstream G550** (Jato Ultra Long Range) - Capacidade: 16 passageiros. Voos intercontinentais sem escalas.
+
+## Diferenciais
+- Homologação completa pela ANAC.
+- Atendimento 24 horas por dia, 7 dias por semana.
+- Pagamento seguro e facilitado.
+- Orçamento instantâneo disponível diretamente no site oficial.
+
+## Contato e Orçamentos
+Os orçamentos podem ser simulados diretamente no site ou solicitados via WhatsApp com a equipe de atendimento.
+
+URL Oficial: https://viaaereabrasil.com.br

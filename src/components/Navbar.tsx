@@ -37,12 +37,12 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
             className="flex items-center gap-2 cursor-pointer group" 
             onClick={() => setActiveTab('home')}
           >
-            <img 
-              src="input_file_0.png" 
-              alt="Via Aérea Brasil Logo" 
-              className="h-12 md:h-14 w-auto transition-transform group-hover:scale-105"
-              referrerPolicy="no-referrer"
-            />
+            <div className="flex items-center gap-2">
+              <Plane className="text-orange-600" size={32} />
+              <span className="text-2xl font-black tracking-tighter text-slate-900">
+                VIA AÉREA<span className="text-orange-600">.</span>
+              </span>
+            </div>
           </div>
           
           <div className="hidden md:flex items-center gap-6">
@@ -68,7 +68,8 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
           <div className="md:hidden">
              <button 
               onClick={() => setActiveTab('calculator')}
-              className="bg-orange-600 text-white p-2 rounded-full shadow-lg"
+              aria-label="Fazer Orçamento"
+              className="bg-orange-600 text-white p-3 rounded-full shadow-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
               <Calculator size={20} />
             </button>

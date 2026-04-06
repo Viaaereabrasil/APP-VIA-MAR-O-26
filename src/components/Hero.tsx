@@ -65,6 +65,8 @@ export default function Hero({ onStartBudget, onViewFleet }: HeroProps) {
             <img
               src={HERO_IMAGES[currentImage].url}
               alt={HERO_IMAGES[currentImage].title}
+              width="1920"
+              height="1080"
               className="h-full w-full object-cover"
               referrerPolicy="no-referrer"
               fetchPriority={currentImage === 0 ? "high" : "auto"}
@@ -97,6 +99,8 @@ export default function Hero({ onStartBudget, onViewFleet }: HeroProps) {
             <img 
               src="input_file_1.png" 
               alt="Via Aérea Brasil Logo" 
+              width="240"
+              height="84"
               className="h-32 md:h-48 w-auto mb-10"
               referrerPolicy="no-referrer"
               fetchPriority="high"
@@ -169,7 +173,8 @@ export default function Hero({ onStartBudget, onViewFleet }: HeroProps) {
       <div className="absolute bottom-12 right-12 z-20 hidden md:flex items-center gap-4">
         <button 
           onClick={prevImage}
-          className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/20 transition-all"
+          aria-label="Imagem anterior"
+          className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/20 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
         >
           <ChevronLeft size={24} />
         </button>
@@ -178,13 +183,17 @@ export default function Hero({ onStartBudget, onViewFleet }: HeroProps) {
             <button
               key={i}
               onClick={() => setCurrentImage(i)}
-              className={`w-3 h-3 rounded-full transition-all ${currentImage === i ? 'bg-orange-600 w-8' : 'bg-white/30'}`}
-            />
+              aria-label={`Ir para imagem ${i + 1}`}
+              className={`h-3 rounded-full transition-all min-h-[44px] min-w-[44px] flex items-center justify-center relative ${currentImage === i ? 'w-8' : 'w-3'}`}
+            >
+              <span className={`absolute h-3 rounded-full transition-all ${currentImage === i ? 'bg-orange-600 w-8' : 'bg-white/30 w-3'}`}></span>
+            </button>
           ))}
         </div>
         <button 
           onClick={nextImage}
-          className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/20 transition-all"
+          aria-label="Próxima imagem"
+          className="p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/20 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
         >
           <ChevronRight size={24} />
         </button>

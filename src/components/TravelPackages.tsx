@@ -408,6 +408,7 @@ export default function TravelPackages() {
         href={getWhatsAppLink()}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Falar no WhatsApp"
         className="fixed bottom-24 right-6 md:bottom-10 md:right-10 w-16 h-16 bg-green-500 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-40 md:hidden"
       >
         <MessageSquare size={32} />
