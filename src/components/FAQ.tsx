@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     question: "Os voos são seguros e homologados?",
-    answer: "Sim, operamos estritamente sob as normas da ANAC (Agência Nacional de Aviação Civil). Todas as nossas aeronaves e parceiros possuem certificação de Táxi Aéreo (RBAC 135), garantindo os mais altos padrões de segurança."
+    answer: "Sim! Operamos estritamente sob as normas da ANAC (Agência Nacional de Aviação Civil). Todas as nossas aeronaves e parceiros possuem certificação de Táxi Aéreo (RBAC 135), garantindo os mais altos padrões de segurança."
   },
   {
     question: "Como é feito o pagamento?",

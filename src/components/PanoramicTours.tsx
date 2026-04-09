@@ -9,6 +9,8 @@ const TOURS_DATA = {
     title: 'Búzios & Região dos Lagos',
     bgImage: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/93/13/19/vista-aerea-de-la-peninsula.jpg',
     description: 'Explore as belezas de Búzios, Cabo Frio e Arraial do Cabo de um ângulo privilegiado.',
+    location: 'Mirante do Amor',
+    paymentInfo: 'Dinheiro/Pix ou Cartão (5% taxa). Parcelamento em até 3x.',
     items: [
       {
         id: 'essencial',
@@ -22,6 +24,7 @@ const TOURS_DATA = {
         borderColor: 'border-orange-100',
         hoverBorder: 'hover:border-orange-300',
         iconColor: 'bg-orange-600',
+        highlights: ['Praia da Tartaruga', 'Praia do Canto', 'Rua das Pedras', 'Praia de João Fernandes', 'Praia Brava']
       },
       {
         id: '360',
@@ -35,6 +38,7 @@ const TOURS_DATA = {
         borderColor: 'border-green-100',
         hoverBorder: 'hover:border-green-300',
         iconColor: 'bg-green-600',
+        highlights: ['Tour completo por Búzios', 'Praia da Ferradura', 'Praia de Geribá', 'Rua das Pedras', 'João Fernandes']
       },
       {
         id: 'cabo-frio',
@@ -48,6 +52,7 @@ const TOURS_DATA = {
         borderColor: 'border-pink-100',
         hoverBorder: 'hover:border-pink-300',
         iconColor: 'bg-pink-600',
+        highlights: ['Búzios', 'Ilha do Japonês', 'Forte de São Mateus', 'Praia do Forte', 'Praia das Dunas']
       },
       {
         id: 'arraial',
@@ -61,13 +66,14 @@ const TOURS_DATA = {
         borderColor: 'border-blue-100',
         hoverBorder: 'hover:border-blue-300',
         iconColor: 'bg-blue-600',
+        highlights: ['Búzios', 'Cabo Frio', 'Prainhas do Pontal do Atalaia', 'Praia do Forno', 'Praia do Farol']
       }
     ]
   },
   rj: {
     title: 'Rio de Janeiro (Barra)',
     bgImage: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=1920',
-    description: 'Sobrevoe a Cidade Maravilhosa com saída exclusiva do Campo Olímpico de Golfe na Barra da Tijuca.',
+    description: 'Sobrevoe a Cidade Maravilhosa de um ângulo inesquecível.',
     location: 'HELIPONTO Golf Olimpico (exclusivo) - Campo Olímpico de Golfe, Barra da Tijuca',
     paymentInfo: 'Dinheiro/Pix ou Cartão (5% taxa). Parcelamento em até 3x.',
     items: [
@@ -132,7 +138,9 @@ const TOURS_DATA = {
   bh: {
     title: 'Belo Horizonte (Pampulha)',
     bgImage: 'https://cdn.imaginbrasil.com.br/wp-content/uploads/2025/08/28230824/thumb.0000001-456.jpg',
-    description: 'Sobrevoe os principais pontos turísticos da capital mineira com saída do Aeroporto da Pampulha.',
+    description: 'Sobrevoe os principais pontos turísticos da capital mineira.',
+    location: 'Aeroporto da Pampulha',
+    paymentInfo: 'Dinheiro/Pix ou Cartão (5% taxa). Parcelamento em até 3x.',
     items: [
       {
         id: 'bh-opcao-1',
@@ -181,9 +189,9 @@ const TOURS_DATA = {
   trancoso: {
     title: 'Trancoso (Trama Club)',
     bgImage: 'https://viaaereabr.com.br/wp-content/uploads/2025/05/Quadrado-Trancoso-Bahia.png',
-    description: 'Saídas exclusivas do Heliponto Trama Club. Explore o litoral sul da Bahia, de Trancoso a Caraíva ou Santo André.',
+    description: 'Explore o litoral sul da Bahia, de Trancoso a Caraíva ou Santo André.',
     location: 'Heliponto Trama Club, Trancoso - BA',
-    paymentInfo: '',
+    paymentInfo: 'Dinheiro/Pix ou Cartão (5% taxa). Parcelamento em até 3x.',
     items: [
       {
         id: 'trancoso-12min',
@@ -256,7 +264,8 @@ const TOURS_DATA = {
     title: 'Ribeirão Preto',
     bgImage: 'https://img.cdndsgni.com/preview/10152047.jpg',
     description: 'Desfrute de um passeio panorâmico pelos pontos turísticos mais belos de Ribeirão Preto em nosso modelo Airbus.',
-    paymentInfo: 'Aeronave decola com mínimo de 5 passageiros ou pagamento proporcional.',
+    location: 'Ribeirão Preto',
+    paymentInfo: 'Aeronave decola com o máximo de 5 pessoas. Dinheiro/Pix ou Cartão (5% taxa). Parcelamento em até 3x.',
     items: [
       {
         id: 'rp-6min',
@@ -275,7 +284,7 @@ const TOURS_DATA = {
         borderColor: 'border-blue-100',
         hoverBorder: 'hover:border-blue-300',
         iconColor: 'bg-blue-600',
-        highlights: ['Pontos turísticos de Ribeirão Preto', 'Voo em Airbus', 'Capacidade até 5 pessoas']
+        highlights: ['Theatro Pedro II', 'Praça XV de Novembro', 'Parque Curupira', 'Estádio Santa Cruz']
       },
       {
         id: 'rp-12min',
@@ -294,7 +303,7 @@ const TOURS_DATA = {
         borderColor: 'border-purple-100',
         hoverBorder: 'hover:border-purple-300',
         iconColor: 'bg-purple-600',
-        highlights: ['Tour panorâmico estendido', 'Voo em Airbus', 'Capacidade até 5 pessoas']
+        highlights: ['Theatro Pedro II', 'Parque Curupira', 'Estádio Santa Cruz', 'Campus USP', 'Parque Raya']
       }
     ]
   }

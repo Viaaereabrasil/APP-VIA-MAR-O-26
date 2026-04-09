@@ -152,7 +152,7 @@ export default function Hero({ onStartBudget, onViewFleet }: HeroProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-lg font-bold shadow-lg hover:bg-slate-50 transition-all"
               >
-                Buscar Pacotes
+                Portal de Reservas
                 <Search size={20} className="text-orange-600" />
               </motion.a>
               <motion.button

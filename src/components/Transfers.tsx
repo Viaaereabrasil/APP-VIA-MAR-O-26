@@ -53,6 +53,36 @@ export default function Transfers() {
         </p>
       </div>
 
+      {/* Important Notes */}
+      <div className="mb-12 bg-orange-50 rounded-[3rem] p-8 md:p-12 border border-orange-100">
+        <h3 className="text-2xl font-bold text-orange-900 mb-6 flex items-center gap-2">
+          <Info className="text-orange-600" />
+          Observações Importantes
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ul className="space-y-4">
+            <li className="flex gap-3 text-orange-800">
+              <ChevronRight size={18} className="shrink-0 mt-1" />
+              <p className="text-sm">Aeronave modelo <strong>AS350 Esquilo</strong> com capacidade para 6 passageiros + bagagens.</p>
+            </li>
+            <li className="flex gap-3 text-orange-800">
+              <ChevronRight size={18} className="shrink-0 mt-1" />
+              <p className="text-sm">Os voos somente serão realizados entre o <strong>nascer e o pôr do sol</strong>.</p>
+            </li>
+          </ul>
+          <ul className="space-y-4">
+            <li className="flex gap-3 text-orange-800">
+              <ChevronRight size={18} className="shrink-0 mt-1" />
+              <p className="text-sm">Caso algum passageiro tenha peso acima de <strong>100kg</strong>, deverá ser informado antes de fechar a reserva.</p>
+            </li>
+            <li className="flex gap-3 text-orange-800">
+              <ChevronRight size={18} className="shrink-0 mt-1" />
+              <p className="text-sm">Crianças de colo até <strong>23 meses</strong> não pagam (apenas uma por voo).</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       {/* Search Bar */}
       <div className="max-w-2xl mx-auto mb-12 relative">
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -134,36 +164,6 @@ export default function Transfers() {
           <p className="text-slate-400">Nenhum trecho encontrado para sua busca.</p>
         </div>
       )}
-
-      {/* Important Notes */}
-      <div className="mt-16 bg-orange-50 rounded-[3rem] p-8 md:p-12 border border-orange-100">
-        <h3 className="text-2xl font-bold text-orange-900 mb-6 flex items-center gap-2">
-          <Info className="text-orange-600" />
-          Observações Importantes
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <ul className="space-y-4">
-            <li className="flex gap-3 text-orange-800">
-              <ChevronRight size={18} className="shrink-0 mt-1" />
-              <p className="text-sm">Aeronave modelo <strong>AS350 Esquilo</strong> com capacidade para 6 passageiros + bagagens.</p>
-            </li>
-            <li className="flex gap-3 text-orange-800">
-              <ChevronRight size={18} className="shrink-0 mt-1" />
-              <p className="text-sm">Os voos somente serão realizados entre o <strong>nascer e o pôr do sol</strong>.</p>
-            </li>
-          </ul>
-          <ul className="space-y-4">
-            <li className="flex gap-3 text-orange-800">
-              <ChevronRight size={18} className="shrink-0 mt-1" />
-              <p className="text-sm">Caso algum passageiro tenha peso acima de <strong>100kg</strong>, deverá ser informado antes de fechar a reserva.</p>
-            </li>
-            <li className="flex gap-3 text-orange-800">
-              <ChevronRight size={18} className="shrink-0 mt-1" />
-              <p className="text-sm">Crianças de colo até <strong>23 meses</strong> não pagam (apenas uma por voo).</p>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
   );
 }
