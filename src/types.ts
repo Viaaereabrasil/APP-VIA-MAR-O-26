@@ -23,6 +23,8 @@ export interface City {
 }
 
 export interface Budget {
+  clientName: string;
+  clientPhone: string;
   origin: string;
   destination: string;
   date: string;

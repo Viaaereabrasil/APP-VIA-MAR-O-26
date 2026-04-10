@@ -1,6 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js';
 import { motion } from 'motion/react';
-import { CheckCircle2, Download, MessageSquare, CreditCard, ArrowLeft, MapPin, Calendar, Clock, Plane, Users, ShieldCheck, Loader2, Share2 } from 'lucide-react';
+import { CheckCircle2, Download, MessageSquare, CreditCard, ArrowLeft, MapPin, Calendar, Clock, Plane, Users, ShieldCheck, Loader2, Share2, Bot } from 'lucide-react';
 import { Budget, Aircraft } from '../types';
 import { FLEET, CITIES, WHATSAPP_LINK } from '../constants';
 import { cn } from '../lib/utils';
@@ -42,6 +42,10 @@ export default function Proposal({ data, onReset }: ProposalProps) {
 
   const getProposalSummary = () => {
     return `Olá! Gostaria de confirmar o orçamento gerado pelo app:\n\n` +
+      `*Dados do Cliente*\n` +
+      `Nome: ${data.clientName}\n` +
+      `Telefone: ${data.clientPhone}\n\n` +
+      `*Detalhes do Voo*\n` +
       `Rota: ${data.origin} -> ${data.destination}\n` +
       `Data: ${data.date} às ${data.time}\n` +
       `Aeronave: ${aircraft.model}\n` +
@@ -138,6 +142,20 @@ export default function Proposal({ data, onReset }: ProposalProps) {
 
         {/* Content */}
         <div className="p-8 sm:p-12 space-y-12">
+          {/* AI Disclaimer */}
+          <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6 flex gap-4 items-start">
+            <div className="bg-orange-100 p-2 rounded-full shrink-0">
+              <Bot className="text-orange-600" size={24} />
+            </div>
+            <div>
+              <h4 className="font-bold text-orange-900 mb-1">Atenção: Atendimento por Inteligência Artificial</h4>
+              <p className="text-sm text-orange-800 leading-relaxed">
+                Você está sendo atendido por uma Inteligência Artificial e as informações geradas podem conter erros ou sofrer alterações. 
+                O atendimento humanizado pode ser chamado a qualquer momento pelo telefone <strong>(31) 99880-4720</strong>.
+              </p>
+            </div>
+          </div>
+
           {/* Route Info */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
             <div className="text-center md:text-left">

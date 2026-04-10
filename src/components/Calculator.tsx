@@ -1,7 +1,7 @@
 import { useState, useEffect, FormEvent, useTransition } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Calendar, Clock, Users, Dog, Briefcase, Calculator as CalcIcon, ArrowRight, Plane } from 'lucide-react';
-import { CITIES, FLEET } from '../constants';
+import { MapPin, Calendar, Clock, Users, Dog, Briefcase, Calculator as CalcIcon, ArrowRight, Plane, User, Phone } from 'lucide-react';
+import { CITIES, FLEET, WHATSAPP_LINK } from '../constants';
 import { Budget, Aircraft } from '../types';
 import { cn } from '../lib/utils';
 
@@ -15,6 +15,8 @@ export default function Calculator({ initialAircraftId, onGenerate }: Calculator
   const initialAircraft = FLEET.find(a => a.id === initialAircraftId);
 
   const [formData, setFormData] = useState<Budget>({
+    clientName: '',
+    clientPhone: '',
     origin: '',
     destination: '',
     date: new Date().toISOString().split('T')[0],
@@ -90,6 +92,8 @@ export default function Calculator({ initialAircraftId, onGenerate }: Calculator
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
+    if (!formData.clientName) newErrors.clientName = 'Nome é obrigatório';
+    if (!formData.clientPhone) newErrors.clientPhone = 'Telefone é obrigatório';
     if (!formData.origin) newErrors.origin = 'Origem é obrigatória';
     if (!formData.destination) newErrors.destination = 'Destino é obrigatório';
     if (formData.origin && formData.destination && formData.origin === formData.destination) {
@@ -118,6 +122,22 @@ export default function Calculator({ initialAircraftId, onGenerate }: Calculator
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (validate()) {
+      // Formata a mensagem para o WhatsApp
+      const message = `Olá! Gostaria de confirmar o orçamento gerado pelo app:\n\n` +
+        `*Dados do Cliente*\n` +
+        `Nome: ${formData.clientName}\n` +
+        `Telefone: ${formData.clientPhone}\n\n` +
+        `*Detalhes do Voo*\n` +
+        `Rota: ${formData.origin} -> ${formData.destination}\n` +
+        `Data: ${formData.date} às ${formData.time}\n` +
+        `Aeronave: ${selectedAircraft.model}\n` +
+        `Passageiros: ${formData.passengers}\n` +
+        `Total Estimado: R$ ${estimatedPrice.toLocaleString('pt-BR')}\n\n` +
+        `Pode me ajudar com a reserva?`;
+      
+      // Abre o WhatsApp automaticamente
+      window.open(`${WHATSAPP_LINK}?text=${encodeURIComponent(message)}`, '_blank');
+      
       onGenerate(formData);
     }
   };
@@ -134,6 +154,49 @@ export default function Calculator({ initialAircraftId, onGenerate }: Calculator
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* Form */}
         <form onSubmit={handleSubmit} className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-100 shadow-xl space-y-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+                <User size={16} className="text-orange-600" />
+                Nome Completo
+              </label>
+              <input
+                type="text"
+                placeholder="Seu nome"
+                value={formData.clientName}
+                onChange={(e) => {
+                  updateField('clientName', e.target.value);
+                  if (errors.clientName) setErrors({ ...errors, clientName: '' });
+                }}
+                className={cn(
+                  "w-full px-4 py-3 rounded-xl border focus:ring-2 outline-none transition-all bg-slate-50",
+                  errors.clientName ? "border-red-500 focus:ring-red-500" : "border-slate-200 focus:ring-orange-500 focus:border-orange-500"
+                )}
+              />
+              {errors.clientName && <p className="text-xs text-red-500 font-medium">{errors.clientName}</p>}
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+                <Phone size={16} className="text-orange-600" />
+                Telefone (com DDD)
+              </label>
+              <input
+                type="tel"
+                placeholder="(11) 99999-9999"
+                value={formData.clientPhone}
+                onChange={(e) => {
+                  updateField('clientPhone', e.target.value);
+                  if (errors.clientPhone) setErrors({ ...errors, clientPhone: '' });
+                }}
+                className={cn(
+                  "w-full px-4 py-3 rounded-xl border focus:ring-2 outline-none transition-all bg-slate-50",
+                  errors.clientPhone ? "border-red-500 focus:ring-red-500" : "border-slate-200 focus:ring-orange-500 focus:border-orange-500"
+                )}
+              />
+              {errors.clientPhone && <p className="text-xs text-red-500 font-medium">{errors.clientPhone}</p>}
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-bold text-slate-700 flex items-center gap-2">

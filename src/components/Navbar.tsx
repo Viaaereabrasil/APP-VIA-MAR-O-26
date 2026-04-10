@@ -38,8 +38,8 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
             onClick={() => setActiveTab('home')}
           >
             <div className="flex items-center gap-2">
-              <Plane className="text-orange-600" size={32} />
-              <span className="text-2xl font-black tracking-tighter text-slate-900">
+              <Plane className="text-orange-600 transition-all duration-300 ease-out group-hover:-rotate-12 group-hover:scale-110" size={32} />
+              <span className="text-2xl font-black tracking-tighter text-slate-900 transition-colors duration-300 group-hover:text-slate-800">
                 VIA AÉREA<span className="text-orange-600">.</span>
               </span>
             </div>

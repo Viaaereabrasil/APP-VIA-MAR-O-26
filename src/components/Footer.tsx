@@ -18,13 +18,13 @@ export default function Footer() {
               Sua melhor escolha em fretamento executivo e passeios panorâmicos. Segurança, agilidade e exclusividade em cada voo.
             </p>
             <div className="flex gap-4">
-              <a href="#" aria-label="Instagram" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
+              <a href="https://www.instagram.com/viaaereabrasil_oficial" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
                 <Instagram size={18} />
               </a>
-              <a href="#" aria-label="Facebook" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
+              <a href="https://www.facebook.com/viaaereabrasiloficial" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
                 <Facebook size={18} />
               </a>
-              <a href="#" aria-label="LinkedIn" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
+              <a href="https://www.linkedin.com/in/viaaereabrasil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-600 transition-colors">
                 <Linkedin size={18} />
               </a>
               <a href="https://share.google/djMFVK590x1voem5Q" aria-label="Página no Google" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-white transition-colors group">
@@ -113,10 +113,21 @@ export default function Footer() {
             <p>© 2026 Via Aérea Brasil. Todos os direitos reservados.</p>
             <p className="text-xs opacity-60">CNPJ: 13.364.718/0001-09</p>
           </div>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
-            <a href="#" className="hover:text-white transition-colors">Privacidade</a>
-            <a href="#" className="hover:text-white transition-colors">ANAC RBAC 135</a>
+          <div className="flex items-center gap-8">
+            <div className="hidden md:flex gap-8">
+              <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
+              <a href="#" className="hover:text-white transition-colors">Privacidade</a>
+              <a href="#" className="hover:text-white transition-colors">ANAC RBAC 135</a>
+            </div>
+            {/* Discreet Visitor Counter */}
+            <div className="opacity-30 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500" title="Contador de Visitas">
+              <img 
+                src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fviaaereabrasil.vercel.app&count_bg=%23EA580C&title_bg=%230F172A&icon=&icon_color=%23E7E7E7&title=Visitas&edge_flat=true" 
+                alt="Contador de Visitas" 
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </div>
         </div>
       </div>
